@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for flight in flights %}
+    <div>
+        <p>Flight ID: <b>{{ flight.id }}</b></p><br>
+        <p>Route ID: <b>{{ flight.route_id }}</b></p><br>
+        <p>Airplane ID: <b>{{ flight.airplane_id }}</b></p><br>
+        <p>Departure Time: <b>{{ flight.departure_time }}</b></p><br>
+        <p>Reserved Seats: <b>{{ flight.reserved_seats }}</b></p><br>
+        <p>Seat Price: <b>{{ flight.seat_price }}</b></p><br>
+    </div>
+    {% endfor %}
+    <hr>
+    <hr>
+    <div>
+        <h3>Flight Registration Form</h3>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.id.label }}<br>
+                {{ form.id(size=32) }}
+            </p>
+            <p>
+                {{ form.route_id.label }}<br>
+                {{ form.route_id(size=32) }}
+            </p>
+            <p>
+                {{ form.airplane_id.label }}<br>
+                {{ form.departure_time(size=32) }}
+            </p>
+            <p>
+                {{ form.departure_time.label }}<br>
+                {{ form.departure_time(size=32) }}
+            </p>
+            <p>
+                {{ form.reserved_seats.label }}<br>
+                {{ form.reserved_seats(size=32) }}
+            </p>
+            <p>
+                {{ form.seat_price.label }}<br>
+                {{ form.seat_price(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}

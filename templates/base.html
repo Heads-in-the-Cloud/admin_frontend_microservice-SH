@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+      {% if title %}
+      <title>Utopia Admin Services -> {{ title }}</title>
+      {% else %}
+      <title>Welcome to Utopia Admin Services</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>
+            <b>Utopia Admin Services:</b><br>
+                &emsp; &emsp; <a href="/index">Home</a>
+                &emsp; &emsp; <a href="/login">Login</a>
+                &emsp; &emsp; <a href="/register">Register</a><br><br>
+            <b>Infrastructure:</b>
+                &emsp; <a href="/airport">Airports</a>
+                &emsp; <a href="/route">Routes</a>
+                &emsp; <a href="/flight">Flights</a><br>
+            <b>Fleet:</b>
+                &emsp; <a href="/airplane_type">Airplane Types</a>
+                &emsp; <a href="/airplane">Airplanes</a>
+                &emsp; <a href="/airport">Airports</a><br>
+            <b>Bookings:</b>
+                &emsp; <a href="/booking">Bookings</a>
+                &emsp; <a href="/booking_guest">Guests</a>
+                &emsp; <a href="/booking_payments">Payments</a><br>
+            <b>People:</b>
+                &emsp; <a href="/passenger">Passengers</a>
+                &emsp; <a href="/user">Users</a>
+                &emsp; <a href="/user_role">User Roles</a>
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for user in users %}
+    <div>
+        <p>User ID: <b>{{ user.id }}</b></p><br>
+        <p>Role ID: <b>{{ user.role_id }}</b></p><br>
+        <p>Full Name: <b>{{ user.given_name }} {{ user.family_name }}</b></p><br>
+        <p>Username: <b>{{ user.username }}</b></p><br>
+        <p>Email: <b>{{ user.email }}</b></p><br>
+        <p>Phone: <b>{{ user.phone }}</b></p><br>
+    </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for airplane in airplanes %}
+    <div>
+        <dl>
+        {% for k, v in airplane %}
+            <dt>{{ k }}</dt>
+            <dd>{{ v }}</dd>
+        {% endfor %}
+        </dl>
+    </div>
+    <div>
+        <p>Airplane ID: <b>{{ airplane.id }}</b></p><br>
+        <p>Type ID: <b>{{ airplane.type_id }}</b></p>
+    </div>
+    {% endfor %}
+    <hr>
+    <hr>
+    <div>
+        <h3>Airplane Registration Form</h3>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.airplane_type.label }}<br>
+                {{ form.airplane_type(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}

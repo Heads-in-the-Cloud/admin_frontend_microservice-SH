@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for route in routes %}
+    <div>
+        <p>Route ID: <b>{{ route.id }}</b></p><br>
+        <p>Origin: <b>{{ route.origin }}</b></p><br>
+        <p>Destination: <b>{{ route.destination }}</b></p><br>
+        <p>Duration: <b>{{ route.duration }}</b></p><br>
+    </div>
+    {% endfor %}
+    <hr>
+    <hr>
+    <div>
+        <h3>Route Registration Form</h3>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.origin_id.label }}<br>
+                {{ form.origin_id(size=32) }}
+            </p>
+            <p>
+                {{ form.destination_id.label }}<br>
+                {{ form.destination_id(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}
