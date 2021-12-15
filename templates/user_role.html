@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for user_role in user_roles %}
+    <div>
+        <p>Role ID: <b>{{ user_role.id }}</b></p>
+        <p>Role Name: <b>{{ user_role.name }}</b></p>
+    </div>
+    <br>
+    {% endfor %}
+    <hr>
+    <hr>
+    <div>
+        <h3>User Role Registration Form</h3>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.id.label }}<br>
+                {{ form.id(size=32) }}
+            </p>
+            <p>
+                {{ form.name.label }}<br>
+                {{ form.name(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}

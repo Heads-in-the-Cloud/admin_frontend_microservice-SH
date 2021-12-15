@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for type in types %}
+    <div>
+        <p>Type ID: <b>{{ type.id }}</b></p><br>
+        <p>Max Capacity: <b>{{ type.max_cap }}</b></p><br>
+    </div>
+    {% endfor %}
+    <hr>
+    <hr>
+    <div>
+        <h3>Airplane Type Registration Form</h3>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.type_id.label }}<br>
+                {{ form.type_id(size=32) }}
+            </p>
+            <p>
+                {{ form.max_capacity.label }}<br>
+                {{ form.max_capacity(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for passenger in passengers %}
+    <div>
+        <p>Passenger ID: <b>{{ passenger.id }}</b></p><br>
+        <p>Booking ID: <b>{{ passenger.booking_id }}</b></p><br>
+        <p>Full Name: <b>{{ passenger.given_name }} {{ passenger.family_name }}</b></p><br>
+        <p>Birthdate: <b>{{ passenger.dob }}</b></p><br>
+        <p>Gender: <b>{{ passenger.gender }}</b></p><br>
+        <p>Address: <b>{{ passenger.address }}</b></p><br>
+    </div>
+    {% endfor %}
+    <hr>
+    <hr>
+    <div>
+        <h3>Passenger Registration Form</h3>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.id.label }}<br>
+                {{ form.id(size=32) }}
+            </p>
+            <p>
+                {{ form.booking_id.label }}<br>
+                {{ form.booking_id(size=32) }}
+            </p>
+            <p>
+                {{ form.given_name.label }}<br>
+                {{ form.given_name(size=32) }}
+            </p>
+            <p>
+                {{ form.family_name.label }}<br>
+                {{ form.family_name(size=32) }}
+            </p>
+            <p>
+                {{ form.dob.label }}<br>
+                {{ form.dob(size=32) }}
+            </p>
+            <p>
+                {{ form.gender.label }}<br>
+                {{ form.gender(size=32) }}
+            </p>
+            <p>
+                {{ form.address.label }}<br>
+                {{ form.address(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}

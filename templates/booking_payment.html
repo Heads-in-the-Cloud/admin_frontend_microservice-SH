@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for b_payment in b_payments %}
+    <div>
+        <p>Booking ID: <b>{{ b_payment.booking_id }}</b></p><br>
+        <p>Stripe ID: <b>{{ b_payment.stripe_id }}</b></p><br>
+        <p>Refunded?: <b>{{ b_payment.refunded }}</b></p><br>
+    </div>
+    {% endfor %}
+    <hr>
+    <hr>
+    <div>
+        <h3>Booking Payment Registration Form</h3>
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.booking_id.label }}<br>
+                {{ form.booking_id(size=32) }}
+            </p>
+            <p>
+                {{ form.stripe_id.label }}<br>
+                {{ form.stripe_id(size=32) }}
+            </p>
+            <p>
+                {{ form.confirmation_code.label }}<br>
+                {{ form.confirmation_code(size=32) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+{% endblock %}
