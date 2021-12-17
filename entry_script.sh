@@ -20,6 +20,8 @@ if [[ -n $SECRET_KEY || -n $SECRET_KEY_FILE ]]; then
   file_env 'SECRET_KEY'
 fi
 
-export JWT_SECRET_KEY="$SECRET_KEY"
+source ../venv/bin/activate
 
-python /app/app.py
+export FLASK_APP=app.py
+
+exec flask run
